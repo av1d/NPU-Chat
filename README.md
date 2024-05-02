@@ -22,4 +22,8 @@ run:
 
 then navigate to the IP/port in your browser.  
 
-Works in any browser besides Firefox desktop or mobile (but maybe nightly, with the correct settings).
+Works in any browser besides Firefox desktop or mobile (but maybe nightly, with the correct settings).  
+
+Known issues:  
+Some models don't output valid markdown for everything. For example, if you ask Qwen `show me a list of emoji`, it will not be valid markdown.  
+The problem is it uses newline (`\n`) after each item in the emoji list, but we can't convert it to `<br>` without potentially destroying all code that passes through. It would be a bad idea. The problem is further complicated by markdown validators do not consider this emoji list to be invald markdown, so we cannot apply conditional rules. If you have a solution I would love to hear it.
