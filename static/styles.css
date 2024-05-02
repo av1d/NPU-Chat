@@ -1,0 +1,356 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Bauhaus', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #111111, #222222);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  background: #232323;
+  border-radius: 0;
+  overflow: auto;
+}
+
+.chat-container {
+  background: 
+    radial-gradient(ellipse at 50% 50%, 
+      #00008B0a 10%, 
+      #8B008B0a 30%, 
+      #8B00FF0a 50%, 
+      #00008B0a 70%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      #00008B0a,
+      #00008B0a 10px,
+      #8B008B0a 10px,
+      #8B008B0a 20px,
+      #8B00FF0a 20px,
+      #8B00FF0a 30px,
+      #00008B0a 30px,
+      #00008B0a 40px
+    );
+  background-size: 300% 300%;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 60px;
+}
+
+.message {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.message-content {
+  /* white-space: pre-wrap; */
+  word-wrap: break-word;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.message.sent {
+  background: #383838;
+  color: #f5f5f5;
+  width: 95%;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: 0;
+  border-left: 2px solid black;
+  border-top: 1px solid black;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  box-shadow: 1px 1px 2px #696969dd;
+  text-align: left !important;
+  word-wrap: break-word;
+  padding-left: 20px;
+}
+
+.message.received {
+  background: #111111;
+  color: #f5f5f5;
+  width: 80%;
+  box-shadow: -1px 1px 1px #9805b555;
+  border-right: 2px solid black;
+  border-top: 1px solid black;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  padding-top: 5px;
+  padding-right: 15%;
+  margin: 0;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+#answer-response { /* text of the AI's answer */
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.message-input-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px;
+  display: flex;
+}
+
+.message-input {
+  flex: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 1px solid #240080;
+  border-radius: 15px;
+  resize: none;
+  overflow-y: hidden;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.message-input:focus {
+  outline: none;
+}
+
+/* markdown styles */
+code {
+  color: #b0ff05;
+  border: 0;
+}
+pre {
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #111;
+  border-radius: 10px;
+}
+code, pre {
+  background-color: #000;
+}
+
+
+/* media queries for mobile UI */
+@media (max-width: 767px) {
+  .chat-container {
+    bottom: 90px;
+  }
+	
+  .message-input-container {
+    height: 80px;
+  }
+}
+
+
+/* links & lists */
+a {
+  color: #7fff00;
+}
+
+ul {
+  padding-top: 10px;
+  padding-right: 5px;
+  list-style-type: square;
+  margin: 0px;
+}
+
+li {
+  padding: 0;
+  margin-bottom: 1px;
+  margin-top: 0px;
+  line-height: 1;
+}
+
+li::marker {
+  color: #7fff00;
+}
+
+/* send button */
+
+.send-button {
+  padding: 12px 20px;
+  border: 1px solid #240080;
+  background: #111;
+  color: #9805b5;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 26px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+.send-button:hover {
+  color: #f5f5f5;
+  box-shadow: 1px 1px 0 #7fff00;
+}
+
+.send-button:focus {
+  outline: none;
+  box-shadow: 1px 1px 0 #7fff00;
+}
+
+.send-icon { /* text of the send button */
+  display: block;
+}
+
+/* copy button */
+.copy-button {
+  padding: 10px;
+  display: inline-block;
+  background-color: #333;
+  color: #ccc;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 1px 1px 0 #555;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* Add animation styles */
+.animate {
+  animation: pulse 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
+  }
+
+    }
+
+/* spinning animation on send button */
+.loader {
+  width: 30px;
+  aspect-ratio: 1;
+  display: grid;
+  mask: conic-gradient(from 45deg, #0001, #000);
+  animation: load 1s steps(10) infinite;
+  --_g: linear-gradient(#9805b5 0 0) 50%;
+  background:
+    var(--_g)/34% 8% space no-repeat,
+    var(--_g)/8% 34% no-repeat space;
+  position: relative;
+  z-index: 1;
+  display: none;
+}
+
+.pupil {
+  border-radius: 50%;
+  background-color: black;
+  animation: pupilAnimation 2s infinite alternate;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@keyframes pupilAnimation {
+  0% {
+    width: 10px;
+    height: 8px;
+  }
+  25% {
+    width: 15px;
+    height: 13px;
+  }
+  50% {
+    width: 20px;
+    height: 18px;
+  }
+  100% {
+    width: 25px;
+    height: 23px;
+  }
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #000000 20%, #9805b5 20%);
+  transform: rotate(45deg);
+  animation: load 10s steps(10) infinite;
+  z-index: -1;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* scrollbars */
+/* width & height for the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #00;
+}
+
+
+
+
+
