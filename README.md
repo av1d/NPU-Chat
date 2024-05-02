@@ -1,8 +1,9 @@
 # Web UI for rk3588_npu_llm_server  
 
-Chat interface for LLM running on RK3588 NPU.  
+Chat interface for LLM running on RK3588 NPU. Responsive design for desktop & mobile.  
 
 
+  
 ![Screenshot 01](https://github.com/av1d/NPU-Chat/blob/main/screenshots/desktop.png)  
 
 
