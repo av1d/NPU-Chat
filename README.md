@@ -1,7 +1,7 @@
 # Web UI for rk3588_npu_llm_server  
 
-![Screenshot 01](https://github.com/av1d/NPU-Chat/blob/main/images/desktop.png)
-![Screenshot 02](https://github.com/av1d/NPU-Chat/blob/main/images/mobile.jpg)
+![Screenshot 01](https://github.com/av1d/NPU-Chat/blob/main/screenshots/desktop.png)
+![Screenshot 02](https://github.com/av1d/NPU-Chat/blob/main/screenshots/mobile.jpg)
 
 install:  
 You must first be running https://github.com/av1d/rk3588_npu_llm_server  
