@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, jsonify
 from requests.exceptions import Timeout
 
 APPNAME = 'NPU Chat'
-VERSION = '0.21'
+VERSION = '0.23'
 
 
 def contains_chinese(text: str) -> bool:
@@ -155,6 +155,7 @@ def web_server() -> None:
 
     def web_request_logic():
 
+        global USE_CHAT_CONTEXT
         global CONTEXT
 
         # start recording response time
@@ -163,12 +164,16 @@ def web_server() -> None:
         # get web input
         question = request.form['input_text']
 
-        # if user sends the word 'clear', clear context history
-        if question == 'clear':
-            test = CONTEXT
-            CONTEXT = []
-            stz = f"context cleared. {test}"
-            return {'content': stz}
+        # commands for manipulating context state
+        if question == 'clear': # erase context
+            CONTEXT = [] # initialize the context list
+            return {'content': "context cleared."}
+        if question == 'off': # turn it off
+            USE_CHAT_CONTEXT = False
+            return {'content': "context off."}
+        if question == 'on': # turn it on
+            USE_CHAT_CONTEXT = False
+            return {'content': "context on."}
 
         print(f"━━━━━━━━┫ Received request: {question}")
 
