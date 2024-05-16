@@ -35,18 +35,18 @@ body {
   background: 
     radial-gradient(ellipse at 50% 50%, 
       #00008B0a 10%, 
-      #8B008B0a 30%, 
-      #8B00FF0a 50%, 
+      #00ff0a0a 30%, 
+      #00ff050a 50%, 
       #00008B0a 70%
     ),
     repeating-linear-gradient(
       135deg,
       #00008B0a,
       #00008B0a 10px,
-      #8B008B0a 10px,
-      #8B008B0a 20px,
-      #8B00FF0a 20px,
-      #8B00FF0a 30px,
+      #00ff0a0a 10px,
+      #00ff0a0a 20px,
+      #00ff050a 20px,
+      #00ff050a 30px,
       #00008B0a 30px,
       #00008B0a 40px
     );
@@ -71,15 +71,14 @@ body {
 }
 
 .message-content {
-  /* white-space: pre-wrap; */
   word-wrap: break-word;
   font-size: inherit;
   font-family: inherit;
   color: inherit;
 }
 
-.message.sent { /* the message you send */
-  white-space: pre-wrap; /* if you have input formatting issues, comment this line out */
+.message.sent {
+  white-space: pre-wrap;
   background: #383838;
   color: #f5f5f5;
   width: 95%;
@@ -96,11 +95,11 @@ body {
   padding-left: 20px;
 }
 
-.message.received { /* message you receive */
+.message.received {
   background: #111111;
   color: #f5f5f5;
   width: 80%;
-  box-shadow: -1px 1px 1px #9805b555;
+  box-shadow: -1px 1px 1px #00ff0555;
   border-right: 2px solid black;
   border-top: 1px solid black;
   border-top-right-radius: 15px;
@@ -114,7 +113,7 @@ body {
   text-align: left;
 }
 
-#answer-response { /* text of the AI's answer */
+#answer-response {
   padding-left: 5px;
   padding-right: 10px;
 }
@@ -132,7 +131,7 @@ body {
   flex: 1;
   padding: 15px;
   box-sizing: border-box;
-  border: 1px solid #240080;
+  border: 1px solid #00ff05;
   border-radius: 15px;
   resize: none;
   overflow-y: hidden;
@@ -146,7 +145,6 @@ body {
   outline: none;
 }
 
-/* markdown styles */
 code {
   color: #b0ff05;
   border: 0;
@@ -161,8 +159,6 @@ code, pre {
   background-color: #000;
 }
 
-
-/* media queries for mobile UI */
 @media (max-width: 767px) {
   .chat-container {
     bottom: 90px;
@@ -173,8 +169,6 @@ code, pre {
   }
 }
 
-
-/* links & lists */
 a {
   color: #7fff00;
 }
@@ -197,13 +191,11 @@ li::marker {
   color: #7fff00;
 }
 
-/* send button */
-
 .send-button {
   padding: 12px 20px;
-  border: 1px solid #240080;
+  border: 1px solid #00ff05;
   background: #111;
-  color: #9805b5;
+  color: #00ff0a;
   border-radius: 20px;
   cursor: pointer;
   font-size: 26px;
@@ -221,11 +213,10 @@ li::marker {
   box-shadow: 1px 1px 0 #7fff00;
 }
 
-.send-icon { /* text of the send button */
+.send-icon {
   display: block;
 }
 
-/* copy button */
 .copy-button {
   padding: 10px;
   display: inline-block;
@@ -245,7 +236,6 @@ li::marker {
   text-align: center;
 }
 
-/* Add animation styles */
 .animate {
   animation: pulse 1s;
   animation-fill-mode: forwards;
@@ -254,27 +244,25 @@ li::marker {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 5, 0.5);
   }
   50% {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(128, 0, 128, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 5, 0.7);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 5, 0.5);
   }
+}
 
-    }
-
-/* spinning animation on send button */
 .loader {
   width: 30px;
   aspect-ratio: 1;
   display: grid;
   mask: conic-gradient(from 45deg, #0001, #000);
   animation: load 1s steps(10) infinite;
-  --_g: linear-gradient(#9805b5 0 0) 50%;
+  --_g: linear-gradient(#00ff0a 0 0) 50%;
   background:
     var(--_g)/34% 8% space no-repeat,
     var(--_g)/8% 34% no-repeat space;
@@ -317,7 +305,7 @@ li::marker {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, #000000 20%, #9805b5 20%);
+  background: radial-gradient(circle at 50% 50%, #000000 20%, #00ff0a 20%);
   transform: rotate(45deg);
   animation: load 10s steps(10) infinite;
   z-index: -1;
@@ -329,29 +317,19 @@ li::marker {
   }
 }
 
-/* scrollbars */
-/* width & height for the scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #222;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #666;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #00;
 }
-
-
-
-
-

@@ -2,7 +2,14 @@
 
 Chat interface for LLM running on RK3588 NPU. Responsive design for desktop & mobile.  
 
-### Recent update:  
+### Recent updates:  
+#### 2024-05-16
+* New version: 0.27
+* New alternate UI theme availalble. Select it in settings.ini.
+* New visual UI enhancements (touched up bloated rounded styles), better user-input text formatting.
+* Front-end error handling in JS now alerts if any servers are offline.
+* New 'context' command prints current context.
+
 ##### 2024-05-16
 * New version: 0.26
 * Experimental: You can now (optionally) use chat contexts. Use the commands `clear`, `off`, `on` to manipulate the state.

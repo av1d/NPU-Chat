@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, jsonify
 from requests.exceptions import Timeout
 
 APPNAME = 'NPU Chat'
-VERSION = '0.26'
+VERSION = '0.27'
 
 
 def contains_chinese(text: str) -> bool:
@@ -136,7 +136,9 @@ def web_server() -> None:
     # serve the UI to the user
     @app.route('/', methods=['GET', 'POST'])
     def index():
-        response = app.make_response(render_template('index.html'))
+        response = app.make_response(
+            render_template('index.html', selected_theme=UI_THEME)
+        )
         response.headers['Pragma'] = 'no-cache'
         response.headers['Cache-Control'] = (
             'no-cache, no-store, must-revalidate'
@@ -165,6 +167,20 @@ def web_server() -> None:
         question = request.form['input_text']
 
         # commands for manipulating context state
+        if question.lower() == 'context': # show current context
+            context_history = ""
+            for llm_reply in CONTEXT: # format into markdown codeblocks
+                context_history = (
+                    f"```\n"
+                    f"{llm_reply}"
+                    f"\n```\n"
+                )
+            answer = (
+                f"<md class='markdown-style'>"
+                f"{context_history}"
+                f"</md>"
+            )
+            return {'content': answer}
         if question.lower() == 'clear': # erase context
             CONTEXT = [] # initialize the context list
             return {'content': "context cleared."}
@@ -260,6 +276,7 @@ def load_config(script_dir: str) -> None:
     global USE_CHAT_CONTEXT
     global CONTEXT_DEPTH
     global IGNORE_CHINESE
+    global UI_THEME
 
     # assign settings. str unless noted otherwise
     BINDING_ADDRESS = parser.get('chat_ui', 'BINDING_ADDRESS')
@@ -275,6 +292,8 @@ def load_config(script_dir: str) -> None:
         parser.get('context','DEPTH')
     ) # int
     IGNORE_CHINESE = parser.get('context','IGNORE_CHINESE') # bool
+
+    UI_THEME = parser.get('theme','THEME')
 
 if __name__ == "__main__":
 

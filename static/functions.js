@@ -57,7 +57,7 @@ const sendIcon = document.querySelector('.send-icon');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-      // Generate a random hash
+    // Generate a random hash
     const randomHash = Math.random().toString(36).substring(2, 34);
 
     fetch('/search', {
@@ -89,6 +89,7 @@ form.addEventListener('submit', function(event) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
         // Hide loader and loader:before and unhide send-icon
+        // this stops the animation
         loader.style.display = 'none';
         pupil.style.display = 'none';
         if (loaderBefore) {
@@ -98,6 +99,19 @@ form.addEventListener('submit', function(event) {
     })
     .catch(error => {
         console.error('Error:', error);
+        const failedMessage = document.createElement('div');
+        failedMessage.classList.add('message', 'received');
+        failedMessage.innerHTML = '<p>Failed to fetch. Is the server for this UI offline?</p>';
+        chatMessages.appendChild(failedMessage);
+
+        // Hide loader and loader:before and unhide send-icon
+        // this stops the animation
+        loader.style.display = 'none';
+        pupil.style.display = 'none';
+        if (loaderBefore) {
+            loaderBefore.style.display = 'none';
+        }
+        sendIcon.style.display = 'block';
     });
 
     document.getElementById('input_text').value = '';
