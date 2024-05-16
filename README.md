@@ -15,8 +15,6 @@ Chat interface for LLM running on RK3588 NPU. Responsive design for desktop & mo
 ![Screenshot 01](https://github.com/av1d/NPU-Chat/blob/main/screenshots/desktop.png)  
 
 
-![Screenshot 02](https://github.com/av1d/NPU-Chat/blob/main/screenshots/mobile.jpg)
-
 **install:**  
 You must first be running https://github.com/av1d/rk3588_npu_llm_server  
 then:  
