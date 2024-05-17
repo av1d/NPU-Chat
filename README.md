@@ -3,6 +3,9 @@
 Chat interface for LLM running on RK3588 NPU. Responsive design for desktop & mobile.  
 
 ### Recent updates:  
+#### 2024-05-17
+* Added automated installer script to make installation much easier.
+
 #### 2024-05-16
 * New version: 0.27
 * New alternate UI theme availalble. Select it in settings.ini.

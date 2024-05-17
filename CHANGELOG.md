@@ -1,3 +1,7 @@
+## 2024-05-17
+## Changes
+* Added automated installer script to make things easier.
+
 ## 2024-05-16
 ## Changes v0.27
 * New version: 0.27
